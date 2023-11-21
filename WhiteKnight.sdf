@@ -1,0 +1,45 @@
+<?xml version='1.0'?>
+<sdf xmlns:drake="http://drake.mit.edu" version="1.8">
+  <model name='WhiteKnight'>
+    <link name='WhiteKnight'>
+      <inertial>
+        <pose>-8.546029292522299e-05 0.2043396825605786 23.357945355519043 0 0 0</pose>
+        <mass>24127636.664613325e-06</mass>
+        <inertia>
+          <ixx>9920261952.234175e-09</ixx>
+          <ixy>-16189.259768406448e-09</ixy>
+          <ixz>-93390.92003340117e-09</ixz>
+          <iyy>9720596293.326387e-09</iyy>
+          <iyz>-125128516.45975383e-09</iyz>
+          <izz>2053913578.1131434e-09</izz>
+        </inertia>
+      </inertial>
+      <visual name='visual'>
+        <pose>0.0 0.0 0.0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>WhiteKnight.obj</uri>
+            <scale>.001 .001 .001</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name='collision'>
+        <pose>0.0 0.0 0.0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>WhiteKnight.obj</uri>
+            <scale>.001 .001 .001</scale>
+          </mesh>
+        </geometry>
+        <!-- The proximity properties immediately below enable the hydroelastic
+             contact model for this body. To use point contact instead, delete
+             or comment out the <drake:rigid_hydroelastic> element. -->
+        <drake:proximity_properties>
+          <drake:mu_dynamic>0.5</drake:mu_dynamic>
+          <drake:mu_static>0.5</drake:mu_static>
+          <drake:rigid_hydroelastic/>
+        </drake:proximity_properties>
+      </collision>
+    </link>
+  </model>
+</sdf>

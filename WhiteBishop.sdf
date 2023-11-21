@@ -1,0 +1,45 @@
+<?xml version='1.0'?>
+<sdf xmlns:drake="http://drake.mit.edu" version="1.8">
+  <model name='WhiteBishop'>
+    <link name='WhiteBishop'>
+      <inertial>
+        <pose>0.000299186290964954 -0.017163546383673185 26.954245055442055 0 0 0</pose>
+        <mass>25091020.824492764e-06</mass>
+        <inertia>
+          <ixx>12801829321.231188e-09</ixx>
+          <ixy>-21698.71100964392e-09</ixy>
+          <ixz>-167833.22201594905e-09</ixz>
+          <iyy>12803464776.348682e-09</iyy>
+          <iyz>20066250.031822912e-09</iyz>
+          <izz>1833383379.6806328e-09</izz>
+        </inertia>
+      </inertial>
+      <visual name='visual'>
+        <pose>0.0 0.0 0.0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>WhiteBishop.obj</uri>
+            <scale>.001 .001 .001</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name='collision'>
+        <pose>0.0 0.0 0.0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>WhiteBishop.obj</uri>
+            <scale>.001 .001 .001</scale>
+          </mesh>
+        </geometry>
+        <!-- The proximity properties immediately below enable the hydroelastic
+             contact model for this body. To use point contact instead, delete
+             or comment out the <drake:rigid_hydroelastic> element. -->
+        <drake:proximity_properties>
+          <drake:mu_dynamic>0.5</drake:mu_dynamic>
+          <drake:mu_static>0.5</drake:mu_static>
+          <drake:rigid_hydroelastic/>
+        </drake:proximity_properties>
+      </collision>
+    </link>
+  </model>
+</sdf>

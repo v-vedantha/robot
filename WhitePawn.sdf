@@ -1,0 +1,45 @@
+<?xml version='1.0'?>
+<sdf xmlns:drake="http://drake.mit.edu" version="1.8">
+  <model name='WhitePawn'>
+    <link name='WhitePawn'>
+      <inertial>
+        <pose>0.00022857914617824986 0.0006510285255446733 19.389254694251754 0 0 0</pose>
+        <mass>14181564.200923633e-06</mass>
+        <inertia>
+          <ixx>4346744584.154487e-09</ixx>
+          <ixy>4895.904691714355e-09</ixy>
+          <ixz>-58853.783911967366e-09</ixz>
+          <iyy>4346845210.970378e-09</iyy>
+          <iyz>-205899.4488136974e-09</iyz>
+          <izz>846652474.3089349e-09</izz>
+        </inertia>
+      </inertial>
+      <visual name='visual'>
+        <pose>0.0 0.0 0.0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>WhitePawn.obj</uri>
+            <scale>.001 .001 .001</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name='collision'>
+        <pose>0.0 0.0 0.0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>WhitePawn.obj</uri>
+            <scale>.001 .001 .001</scale>
+          </mesh>
+        </geometry>
+        <!-- The proximity properties immediately below enable the hydroelastic
+             contact model for this body. To use point contact instead, delete
+             or comment out the <drake:rigid_hydroelastic> element. -->
+        <drake:proximity_properties>
+          <drake:mu_dynamic>0.5</drake:mu_dynamic>
+          <drake:mu_static>0.5</drake:mu_static>
+          <drake:rigid_hydroelastic/>
+        </drake:proximity_properties>
+      </collision>
+    </link>
+  </model>
+</sdf>

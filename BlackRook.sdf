@@ -1,0 +1,45 @@
+<?xml version='1.0'?>
+<sdf xmlns:drake="http://drake.mit.edu" version="1.8">
+  <model name='BlackRook'>
+    <link name='BlackRook'>
+      <inertial>
+        <pose>0.00015730581728647087 0.0005871725940798085 23.46166709029393 0 0 0</pose>
+        <mass>26544778.49924903e-06</mass>
+        <inertia>
+          <ixx>10298132256.697128e-09</ixx>
+          <ixy>-26890.079571169677e-09</ixy>
+          <ixz>-40297.73536019799e-09</ixz>
+          <iyy>10298494880.693264e-09</iyy>
+          <iyz>-307968.58359423536e-09</iyz>
+          <izz>2373329319.5586004e-09</izz>
+        </inertia>
+      </inertial>
+      <visual name='visual'>
+        <pose>0.0 0.0 0.0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>BlackRook.obj</uri>
+            <scale>.001 .001 .001</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name='collision'>
+        <pose>0.0 0.0 0.0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>BlackRook.obj</uri>
+            <scale>.001 .001 .001</scale>
+          </mesh>
+        </geometry>
+        <!-- The proximity properties immediately below enable the hydroelastic
+             contact model for this body. To use point contact instead, delete
+             or comment out the <drake:rigid_hydroelastic> element. -->
+        <drake:proximity_properties>
+          <drake:mu_dynamic>0.5</drake:mu_dynamic>
+          <drake:mu_static>0.5</drake:mu_static>
+          <drake:rigid_hydroelastic/>
+        </drake:proximity_properties>
+      </collision>
+    </link>
+  </model>
+</sdf>

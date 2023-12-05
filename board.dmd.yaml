@@ -1,0 +1,277 @@
+directives:
+- add_model:
+    name: iiwa
+    file: package://drake/manipulation/models/iiwa_description/iiwa7/iiwa7_no_collision.sdf
+    default_joint_positions:
+        iiwa_joint_1: [0]
+        iiwa_joint_2: [0.6]
+        iiwa_joint_3: [0]
+        iiwa_joint_4: [-1.75]
+        iiwa_joint_5: [0]
+        iiwa_joint_6: [ 1.0]
+        iiwa_joint_7: [0]
+- add_weld:
+    parent: world
+    child: iiwa::iiwa_link_0
+    X_PC:
+        translation: [0, 0.55, 0]
+        rotation: !Rpy { deg: [0, 0, 0]}
+- add_model:
+    name: wsg
+    file: package://drake/manipulation/models/wsg_50_description/sdf/schunk_wsg_50_no_tip.sdf
+- add_weld:
+    parent: iiwa::iiwa_link_7
+    child: wsg::body
+    X_PC:
+        translation: [0, 0, 0.114]
+        rotation: !Rpy { deg: [90, 0, 90]}
+- add_model:
+    name: camera
+    file: package://manipulation/camera_box.sdf
+- add_weld:
+    parent: wsg::body
+    child: camera::base
+    X_PC:
+        translation: [0, 0.03, 0.04]
+        # Point slightly down towards camera
+        # RollPitchYaw(0, -0.2, 0.2) @ RollPitchYaw(-np.pi/2, 0, np.pi/2)
+        rotation: !Rpy { deg: [-90, 0, 0] }
+- add_model:
+    name: table_top
+    file: file:///tmp/robotlocomotion_drake_BAdT8E/table_top.sdf
+- add_weld:
+    parent: world
+    child: table_top::table_top_center
+
+- add_model:
+    name: board
+    file: file:///workspaces/robot/pieces/Board.sdf
+    default_free_body_pose:
+        Board:
+            translation: [0, 0, .5]
+            rotation: !Rpy { deg: [90, 0, 0] }    
+
+- add_model:
+    name: p1
+    file: file:///workspaces/robot/pieces/Knight_B.urdf
+    default_free_body_pose:
+        BlackKnight:
+            translation: [0.2625, -0.1875, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p2
+    file: file:///workspaces/robot/pieces/BlackBishop.sdf
+    default_free_body_pose:
+        BlackBishop:
+            translation: [0.2625, -0.11249999999999999, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p3
+    file: file:///workspaces/robot/pieces/BlackKnight.sdf
+    default_free_body_pose:
+        BlackKnight:
+            translation: [0.2625, 0.1875, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p4
+    file: file:///workspaces/robot/pieces/BlackBishop.sdf
+    default_free_body_pose:
+        BlackBishop:
+            translation: [0.2625, 0.11249999999999999, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p5
+    file: file:///workspaces/robot/pieces/BlackQueen.sdf
+    default_free_body_pose:
+        BlackQueen:
+            translation: [0.2625, -0.0375, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p6
+    file: file:///workspaces/robot/pieces/BlackRook.sdf
+    default_free_body_pose:
+        BlackRook:
+            translation: [0.2625, -0.2625, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p7
+    file: file:///workspaces/robot/pieces/BlackRook.sdf
+    default_free_body_pose:
+        BlackRook:
+            translation: [0.2625, 0.2625, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p8
+    file: file:///workspaces/robot/pieces/BlackKing.sdf
+    default_free_body_pose:
+        BlackKing:
+            translation: [0.2625, 0.0375, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p9
+    file: file:///workspaces/robot/pieces/WhiteKnight.sdf
+    default_free_body_pose:
+        WhiteKnight:
+            translation: [-0.2625, -0.1875, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p10
+    file: file:///workspaces/robot/pieces/WhiteBishop.sdf
+    default_free_body_pose:
+        WhiteBishop:
+            translation: [-0.2625, -0.11249999999999999, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p11
+    file: file:///workspaces/robot/pieces/WhiteKnight.sdf
+    default_free_body_pose:
+        WhiteKnight:
+            translation: [-0.2625, 0.1875, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p12
+    file: file:///workspaces/robot/pieces/WhiteBishop.sdf
+    default_free_body_pose:
+        WhiteBishop:
+            translation: [-0.2625, 0.11249999999999999, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p13
+    file: file:///workspaces/robot/pieces/WhiteQueen.sdf
+    default_free_body_pose:
+        WhiteQueen:
+            translation: [-0.2625, -0.0375, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p14
+    file: file:///workspaces/robot/pieces/WhiteRook.sdf
+    default_free_body_pose:
+        WhiteRook:
+            translation: [-0.2625, -0.2625, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p15
+    file: file:///workspaces/robot/pieces/WhiteRook.sdf
+    default_free_body_pose:
+        WhiteRook:
+            translation: [-0.2625, 0.2625, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p16
+    file: file:///workspaces/robot/pieces/WhiteKing.sdf
+    default_free_body_pose:
+        WhiteKing:
+            translation: [-0.2625, 0.0375, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p17
+    file: file:///workspaces/robot/pieces/WhitePawn.sdf
+    default_free_body_pose:
+        WhitePawn:
+            translation: [-0.1875, -0.2625, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p25
+    file: file:///workspaces/robot/pieces/BlackPawn.sdf
+    default_free_body_pose:
+        BlackPawn:
+            translation: [0.1875, -0.2625, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p18
+    file: file:///workspaces/robot/pieces/WhitePawn.sdf
+    default_free_body_pose:
+        WhitePawn:
+            translation: [-0.1875, -0.1875, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p26
+    file: file:///workspaces/robot/pieces/BlackPawn.sdf
+    default_free_body_pose:
+        BlackPawn:
+            translation: [0.1875, -0.1875, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p19
+    file: file:///workspaces/robot/pieces/WhitePawn.sdf
+    default_free_body_pose:
+        WhitePawn:
+            translation: [-0.1875, -0.11249999999999999, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p27
+    file: file:///workspaces/robot/pieces/BlackPawn.sdf
+    default_free_body_pose:
+        BlackPawn:
+            translation: [0.1875, -0.11249999999999999, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p20
+    file: file:///workspaces/robot/pieces/WhitePawn.sdf
+    default_free_body_pose:
+        WhitePawn:
+            translation: [-0.1875, -0.0375, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p28
+    file: file:///workspaces/robot/pieces/BlackPawn.sdf
+    default_free_body_pose:
+        BlackPawn:
+            translation: [0.1875, -0.0375, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p21
+    file: file:///workspaces/robot/pieces/WhitePawn.sdf
+    default_free_body_pose:
+        WhitePawn:
+            translation: [-0.1875, 0.0375, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p29
+    file: file:///workspaces/robot/pieces/BlackPawn.sdf
+    default_free_body_pose:
+        BlackPawn:
+            translation: [0.1875, 0.0375, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p22
+    file: file:///workspaces/robot/pieces/WhitePawn.sdf
+    default_free_body_pose:
+        WhitePawn:
+            translation: [-0.1875, 0.11249999999999999, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p30
+    file: file:///workspaces/robot/pieces/BlackPawn.sdf
+    default_free_body_pose:
+        BlackPawn:
+            translation: [0.1875, 0.11249999999999999, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p23
+    file: file:///workspaces/robot/pieces/WhitePawn.sdf
+    default_free_body_pose:
+        WhitePawn:
+            translation: [-0.1875, 0.1875, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p31
+    file: file:///workspaces/robot/pieces/BlackPawn.sdf
+    default_free_body_pose:
+        BlackPawn:
+            translation: [0.1875, 0.1875, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p24
+    file: file:///workspaces/robot/pieces/WhitePawn.sdf
+    default_free_body_pose:
+        WhitePawn:
+            translation: [-0.1875, 0.2625, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }
+- add_model:
+    name: p32
+    file: file:///workspaces/robot/pieces/BlackPawn.sdf
+    default_free_body_pose:
+        BlackPawn:
+            translation: [0.1875, 0.2625, .75]
+            rotation: !Rpy { deg: [0, 0, 0] }

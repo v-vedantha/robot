@@ -3,7 +3,6 @@
   <model name='WhiteQueen'>
     <link name='WhiteQueen'>
       <inertial>
-        <pose>0.0003774678703151566 0.0008250150524680486 30.38046226127665 0 0 0</pose>
         <mass>33478639.92604636e-09</mass>
         <inertia>
           <ixx>21855748832.574116e-15</ixx>

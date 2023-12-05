@@ -3,7 +3,6 @@
   <model name='BlackRook'>
     <link name='BlackRook'>
       <inertial>
-        <pose>0.00015730581728647087 0.0005871725940798085 23.46166709029393 0 0 0</pose>
         <mass>26544778.49924903e-09</mass>
         <inertia>
           <ixx>10298132256.697128e-15</ixx>

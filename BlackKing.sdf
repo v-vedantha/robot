@@ -3,7 +3,6 @@
   <model name='BlackKing'>
     <link name='BlackKing'>
       <inertial>
-        <pose>6.0601722362624074e-05 0.0009969524825833103 33.21817734250137 0 0 0</pose>
         <mass>37175641.96948724e-09</mass>
         <inertia>
           <ixx>28786428109.84062e-15</ixx>

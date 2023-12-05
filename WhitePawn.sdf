@@ -3,7 +3,6 @@
   <model name='WhitePawn'>
     <link name='WhitePawn'>
       <inertial>
-        <pose>0.00022857914617824986 0.0006510285255446733 19.389254694251754 0 0 0</pose>
         <mass>14181564.200923633e-09</mass>
         <inertia>
           <ixx>4346744584.154487e-15</ixx>
